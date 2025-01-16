@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>float布局_圣杯布局</title>
+</head>
+
+<body>
+  <!-- 圣杯布局和双飞翼布局的目的 -->
+  <!-- 三栏布局, 中间一栏最先加载和渲染 -->
+  <!-- 两侧内容固定，中间内容自适应 -->
+  <!-- 
+    圣杯布局和双飞翼布局的技术总结
+    1. 使用float布局
+    2. 两侧使用margin赋值，以便和中间内容横向重叠
+    3. 防止中间内容被两侧覆盖，一个用margin一个用padding
+  -->
+  <div id="header">this is header</div>
+  <div id="container">
+    <div id="center" class="column">this is center</div>
+    <div id="left" class="column">this is left</div>
+    <div id="right" class="column">this is right</div>
+  </div>
+  <div id="footer">
+    this is footer
+  </div>
+</body>
+<style>
+  body {
+    min-width: 550px;
+  }
+
+  #header {
+    text-align: center;
+    background-color: #f1f1f1;
+  }
+
+  #center {
+    background-color: #ccc;
+    width: 100%;
+  }
+
+  #container {
+    padding-left: 200px;
+    padding-right: 150px;
+  }
+
+  #container .column {
+    float: left;
+  }
+
+  #left {
+    position: relative;
+    background-color: yellow;
+    width: 200px;
+    margin-left: -100%;
+    right: 200px;
+  }
+
+  #right {
+    position: relative;
+    background-color: bisque;
+    width: 150px;
+    margin-right: -150px;
+  }
+
+  #footer {
+    text-align: center;
+    clear: both;
+    background-color: aquamarine;
+  }
+</style>
+
+</html>

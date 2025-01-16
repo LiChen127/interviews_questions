@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BFC理解和应用</title>
+</head>
+
+<body>
+  <!-- Block format context 块级格式上下文 -->
+  <!-- 一块独立渲染的区域，内部元素的渲染不会影响边界以外的元素 -->
+  <!-- 形成BFC的常见条件 -->
+  <!-- float不是none -->
+  <!-- overflow不是visible -->
+  <div class="container bfc">
+    <span class="float-item"></span>
+    <p class="bfc">这是一段文字</p>
+  </div>
+</body>
+<style>
+  .container {
+    background-color: aliceblue;
+  }
+
+  p {
+    /* height: 50px; */
+  }
+
+  .float-item {
+    height: 40px;
+    width: 40px;
+    background-color: aqua;
+    float: left;
+  }
+
+  .bfc {
+    overflow: hidden;
+  }
+</style>
+
+</html>
